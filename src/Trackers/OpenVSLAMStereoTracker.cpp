@@ -330,6 +330,15 @@ TrackerBase::ProcessImageResult OpenVSLAMStereoTracker::processImage(CameraQueue
     return res;
 }
 
+bool OpenVSLAMStereoTracker::updatePose(const Eigen::Matrix4d & pose) {
+    if (m_slam == nullptr) {
+        spdlog::warn("VSLAM instance not created");
+        return false;
+    }
+
+    return m_slam->update_pose(pose);
+}
+
 bool OpenVSLAMStereoTracker::start(SensorQueue &) {
     spdlog::info("OpenVSLAM Stereo tracker starting");
 

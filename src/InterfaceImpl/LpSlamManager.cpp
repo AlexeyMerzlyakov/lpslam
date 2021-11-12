@@ -192,6 +192,10 @@ void LpSlamManager::setRecordImages(bool b) {
   return m_impl->setRecordImages(b);
 }
 
+bool LpSlamManager::updateTrackersPose(const Eigen::Matrix4d & pose) {
+  return m_impl->updateTrackersPose(pose);
+}
+
 void LpSlamManager::mappingAddLaserScan(LpSlamGlobalStateInTime origin,
       float * ranges, size_t rangeCount,
       float start_range,

@@ -27,6 +27,8 @@ public:
         std::optional<GlobalStateInTime> navResultMap = std::nullopt,
         std::vector<SensorQueueEntry> const& sensorValues = {}) override;
 
+    bool updatePose(const Eigen::Matrix4d & pose) override;
+
     std::string type() override {
         // using not the name OpenVSLAM here to not give away
         // which library we are using in the configuration

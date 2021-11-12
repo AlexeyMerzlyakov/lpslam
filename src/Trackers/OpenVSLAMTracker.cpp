@@ -165,6 +165,15 @@ TrackerBase::ProcessImageResult OpenVSLAMTracker::processImage(CameraQueueEntry 
     return res;
 }
 
+bool OpenVSLAMTracker::updatePose(const Eigen::Matrix4d & pose) {
+    if (m_slam == nullptr) {
+        spdlog::warn("VSLAM instance not created");
+        return false;
+    }
+
+    return m_slam->update_pose(pose);
+}
+
 bool OpenVSLAMTracker::start(SensorQueue & sensorQ) {
     spdlog::info("OpenVSLAM Mono tracker starting");
 

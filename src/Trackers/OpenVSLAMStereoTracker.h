@@ -51,6 +51,7 @@ public:
         float increment,
         float range_threshold) override;
 
+    bool updatePose(const Eigen::Matrix4d & pose) override;
 
     std::optional<unsigned long> mappingGetMapRawSize() override;
 

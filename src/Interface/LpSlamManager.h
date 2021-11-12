@@ -10,6 +10,8 @@
 
 #include <string>
 
+#include <Eigen/Core>
+
 namespace LpSlam{
     class SlamManager;
 }
@@ -78,6 +80,8 @@ public:
     void setRecord(bool b);
 
     void setRecordImages(bool b);
+
+    bool updateTrackersPose(const Eigen::Matrix4d & pose);
 
     void start();
 

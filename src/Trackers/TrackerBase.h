@@ -70,6 +70,8 @@ public:
         std::optional<GlobalStateInTime> navResultMap = std::nullopt,
         std::vector<SensorQueueEntry> const& sensorValues = {}) = 0;
 
+    virtual bool updatePose(const Eigen::Matrix4d & pose) = 0;
+
     virtual void addRequestNavTransformationCallback([[maybe_unused]]RequestNavTransformationCallback_t callback,
         [[maybe_unused]]void * userData) {
     }

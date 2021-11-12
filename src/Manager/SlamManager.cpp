@@ -1296,6 +1296,14 @@ bool SlamManager::addImageFromBuffer(uint32_t cameraNumber, LpSlamTimestamp time
     return true;
 }
 
+bool SlamManager::updateTrackersPose(const Eigen::Matrix4d & pose) {
+    bool result = true;
+    for (auto & tracker: m_trackers) {
+        result = result && tracker->updatePose(pose);
+    }
+    return result;
+}
+
 #ifdef LPSLAM_BUILD_CHILITAGS
 void SlamManager::addMarker(LpSlamMarkerIdentifier id, LpSlamMarkerState state) {
     ChiliTrackerMarkerLoading chiliLoader;

@@ -78,6 +78,8 @@ public:
         uint8_t * buffer_right,
         LpSlamImageDescription desc);
 
+    bool updateTrackersPose(const Eigen::Matrix4d & pose);
+
     std::optional<LpSlamCameraConfiguration> getCameraConfiguration(LpSlamCameraNumber num);
 
     void setCameraConfiguration(LpSlamCameraConfiguration const& c );
